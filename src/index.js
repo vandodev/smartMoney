@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
 import {Button, StyleSheet, Text, View, FlatList} from 'react-native';
 
 const App = () => {
