@@ -6,10 +6,13 @@ import BalancePanelLabel from './BalancePanelLabel/';
 
 // import { Container } from './styles';
 
-const BalancePanel = () => {
+const BalancePanel = ({currentBalance}) => {
+  // const currentBalance = '2.064,35';
+  // const saldo = '2.064,35';
   return (
     <View style={styles.container}>
-      <BalancePanelLabel />
+      <BalancePanelLabel currentBalance={currentBalance} />
+      {/* <BalancePanelLabel currentBalance={saldo} /> */}
       <BalancePanelChart />
       {/* <Button title="Adicionar" /> */}
     </View>
