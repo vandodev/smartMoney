@@ -11,10 +11,6 @@ import {saveEntry} from '../../services/Entries';
 const Main = ({navigation}) => {
   const currentBalance = '2.064,35';
 
-  const save = () => {
-    saveEntry();
-  };
-
   const entriesGouped = [
     {key: '1', description: 'Alimentação:', amount: 2000},
     {key: '2', description: 'Combustível:', amount: 12000},
@@ -32,7 +28,10 @@ const Main = ({navigation}) => {
   return (
     <View style={styles.container}>
       <BalancePanel currentBalance={currentBalance} />
-      <Button title="Adicionar" onPress={save} />
+      <Button
+        title="Adicionar"
+        onPress={() => navigation.navigate('NewEntry')}
+      />
       <EntrySummary entriesGouped={entriesGouped} />
       <EntryList entries={entries} />
     </View>
