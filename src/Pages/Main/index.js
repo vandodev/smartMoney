@@ -19,12 +19,6 @@ const Main = ({navigation}) => {
     {key: '5', description: 'Outros:', amount: 2000},
   ];
 
-  const entries = [
-    {key: '1', description: 'Padaria Asa Branca: ', amount: 12},
-    {key: '2', description: 'Supermercado Isadora: ', amount: 42},
-    {key: '3', description: 'Posto Ipiranga: ', amount: 172},
-  ];
-
   return (
     <View style={styles.container}>
       <BalancePanel currentBalance={currentBalance} />
@@ -33,7 +27,7 @@ const Main = ({navigation}) => {
         onPress={() => navigation.navigate('NewEntry')}
       />
       <EntrySummary entriesGouped={entriesGouped} />
-      <EntryList entries={entries} />
+      <EntryList navigation={navigation} />
     </View>
   );
 };
