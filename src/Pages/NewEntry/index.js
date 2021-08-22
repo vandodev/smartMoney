@@ -3,6 +3,7 @@ import {StyleSheet, Text, TextInput, View, Button} from 'react-native';
 
 import BalanceLabel from '../../components/BalanceLabel';
 import {saveEntry} from '../../services/Entries';
+import {deleteEntry} from '../../services/Entries';
 
 const NewEntry = ({navigation}) => {
   const currentBalance = 2064.35;
@@ -13,13 +14,21 @@ const NewEntry = ({navigation}) => {
   });
   const [amount, setAmount] = useState(`${entry.amount}`);
 
-  const save = () => {
+  const onSave = () => {
     const data = {
       amount: parseFloat(amount),
     };
     console.log('NewEntry :: save ', data);
-
     saveEntry(data, entry);
+    onClose();
+  };
+
+  const onDelete = () => {
+    deleteEntry(entry);
+    onClose();
+  };
+  const onClose = () => {
+    navigation.goBack();
   };
   return (
     <View style={styles.container}>
@@ -37,8 +46,9 @@ const NewEntry = ({navigation}) => {
       </View>
 
       <View>
-        <Button title="Adicionar" onPress={save} />
-        <Button title="Canselar" onPress={() => navigation.goBack()} />
+        <Button title="Adicionar" onPress={onSave} />
+        <Button title="Excluir" onPress={onDelete} />
+        <Button title="Canselar" onPress={onClose} />
       </View>
     </View>
   );
