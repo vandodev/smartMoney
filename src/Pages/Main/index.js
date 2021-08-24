@@ -1,17 +1,13 @@
 /* eslint-disable react/self-closing-comp */
 import React from 'react';
-import {View, StyleSheet, Button} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 
 import BalancePanel from '../../components/BalancePanel';
 import EntrySummary from '../../components/EntrySummary';
 import EntryList from '../../components/EntryList';
 import Colors from '../../styles/Colors';
 
-import {saveEntry} from '../../services/Entries';
-
 const Main = ({navigation}) => {
-  const currentBalance = '2.064,35';
-
   const entriesGouped = [
     {key: '1', description: 'Alimentação:', amount: 2000},
     {key: '2', description: 'Combustível:', amount: 12000},
@@ -22,11 +18,7 @@ const Main = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <BalancePanel currentBalance={currentBalance} />
-      {/* <Button
-        title="Adicionar"
-        onPress={() => navigation.navigate('NewEntry')}
-      /> */}
+      <BalancePanel onNewEntryPress={() => navigation.navigate('NewEntry')} />
       <EntrySummary entriesGouped={entriesGouped} />
       <EntryList navigation={navigation} />
     </View>

@@ -8,7 +8,8 @@ import Colors from '../../styles/Colors';
 import BalancePanelChart from './BalancePanelChart/';
 import BalancePanelLabel from './BalancePanelLabel/';
 
-const BalancePanel = ({currentBalance}) => {
+const BalancePanel = ({onNewEntryPress}) => {
+  const currentBalance = '2.064,35';
   return (
     <View style={styles.container}>
       <LinearGradient
@@ -17,8 +18,7 @@ const BalancePanel = ({currentBalance}) => {
         <BalancePanelLabel currentBalance={currentBalance} />
         <BalancePanelChart />
       </LinearGradient>
-      <TouchableOpacity style={styles.button}>
-        {/* <Text>+</Text> */}
+      <TouchableOpacity style={styles.button} onPress={onNewEntryPress}>
         <Icon name="add" size={30} color={Colors.white} />
       </TouchableOpacity>
     </View>
