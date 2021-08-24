@@ -23,10 +23,10 @@ const Main = ({navigation}) => {
   return (
     <View style={styles.container}>
       <BalancePanel currentBalance={currentBalance} />
-      <Button
+      {/* <Button
         title="Adicionar"
         onPress={() => navigation.navigate('NewEntry')}
-      />
+      /> */}
       <EntrySummary entriesGouped={entriesGouped} />
       <EntryList navigation={navigation} />
     </View>
